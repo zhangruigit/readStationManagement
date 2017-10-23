@@ -8,7 +8,6 @@ fieldset,img {
 
 a{
     text-decoration: none;
-    color:#666;
 }
 address,caption,cite,code,dfn,th,var {
     font-style: normal;
@@ -34,9 +33,6 @@ select,input,textarea {
 }
 input[type="text"],input[type="password"],textarea {
     outline-style: none;
-}
-textarea {
-    resize: none
 }
 table {
     border-collapse: collapse
