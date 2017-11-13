@@ -5,7 +5,435 @@
 		<meta charset="UTF-8">
 		<title>登录</title>
 		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+			}
+			
+			.container {
+				width: 88%;
+				height: 95%;
+				margin: 0 auto;
+			}
+			
+			.left {
+				width: 44%;
+				display: inline-block;
+				height: 100%;
+				position: relative;
+			}
+			
+			.left img {
+				position: absolute;
+				right: 0;
+				bottom: 16%;
+			}
+			
+			.right {
+				width: 44%;
+				display: inline-block;
+				height: 100%;
+				position: relative;
+			}
+			
+			.title {
+				color: #2378e5;
+				font-weight: bold;
+				letter-spacing: 1px;
+				text-align: center;
+				font-size: 30px;
+			}
+			
+			.right .input_wrap input {
+				width: 314px;
+				height: 50px;
+				/*				margin: 23px auto;*/
+				border: 1px solid #969696;
+				border-radius: 3px;
+				background-color: #e2efff;
+				padding-left: 40px;
+				font-size: 16px;
+			}
+			
+			.input_wrap {
+				position: relative;
+				margin-top: 23px;
+			}
+			
+			.input_wrap img {
+				width: 30px;
+				position: absolute;
+				left: 8px;
+				top: 8px;
+			}
+			
+			.right_content {
+				position: absolute;
+				left: 0;
+				bottom: 45%;
+			}
+			
+			.loginBtn {
+				width: 354px;
+				height: 50px;
+				background: #2378e5;
+				border-radius: 3px;
+				color: #fff;
+				font-size: 24px;
+				letter-spacing: 1px;
+				line-height: 50px;
+				text-align: center;
+				margin: 20px auto;
+			}
+			
+			.checkboxWrap {
+				margin-top: 10px;
+			}
+			
+			.rememberpwd {
+				color: #000;
+				font-size: 12px;
+			}
+			
+			.header {
+				/*width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;*/
+				width: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 99;
+			}
+			
+			.top_bg {
+				width: 100%;
+				height: 46px;
+			}
+			
+			.top_logo {
+				position: absolute;
+				left: 178px;
+				top: 23px;
+				transform: translate(-50%, -50%);
+			}
+			
+			.top_right {
+				position: absolute;
+				right: 195px;
+				top: 23px;
+				transform: translate(-50%, -50%);
+			}
+			
+			.mg1 {
+				margin-right: 78px;
+			}
+			
+			.manageName {
+				position: absolute;
+				right: 48px;
+				top: 23px;
+				transform: translate(-50%, -50%);
+				color: #fff;
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+			
+			.top_select {
+				position: absolute;
+				right: 41px;
+				top: 23px;
+				transform: translate(-50%, -50%);
+			}
+			
+			.content {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+			}
+			
+			.content_left {
+				width: 8%;
+				height: 100%;
+				background: #424a5d;
+				text-align: center;
+				padding-top: 50px;
+				float: left;
+			}
+			
+			.menuItem {
+				font-size: 20px;
+				color: #fff;
+				font-family: 微软雅黑;
+				width: 100%;
+				height: 56px;
+				line-height: 56px;
+				position: relative;
+			}
+			
+			.menuItem a {
+				color: #fff;
+				display: block;
+			}
+			
+			.active {
+				color: #68ae00!important;
+			}
+			
+			.iconRight {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				margin-top: -6px;
+			}
+			
+			.content_right {
+				width: 91%;
+				float: right;
+				padding-top: 60px;
+			}
+			
+			.btns {
+				width: 800px;
+				height: 32px;
+			}
+			
+			.btns .btnItem {
+				display: inline-block;
+				width: 72px;
+				height: 32px;
+				line-height: 32px;
+				color: #fff;
+				text-align: center;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				margin-right: 20px;
+				cursor: pointer;
+			}
+			
+			.btns .btnItem.addBooks {
+				background: #2378e5;
+			}
+			
+			.btns .btnItem.editBooks {
+				background: #ec5f5f;
+			}
+			
+			.btns .btnItem.delBooks {
+				background: #ff0000;
+			}
+			
+			.btns .btnItem.upBooks {
+				background: #68ae00;
+			}
+			
+			.btns .btnItem.downBooks {
+				background: #fc8213;
+			}
+			
+			.search {
+				width: 95%;
+				height: 32px;
+				margin-top: 22px;
+				line-height: 32px;
+			}
+			
+			.search a {
+				color: #000;
+				font-size: 14px;
+			}
+			
+			.search input {
+				height: 18px;
+				width: 80px;
+				margin-bottom: 6px;
+				font-size: 15px;
+				color: #333;
+			}
+			
+			.search .searchItem {
+				display: inline-block;
+				margin-right: 10px;
+			}
+			
+			.searchBtn {
+				font-size: 14px;
+				width: 56px;
+				height: 24px;
+				background: #2378e5;
+				text-align: center;
+				line-height: 27px;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+			.body {
+				width: 91%;
+				height: 500px;
+				margin-top: 10px;
+				background: #f1fcfd;
+				padding: 28px;
+				overflow: auto;
+			}
+			
+			.bodyItem {
+				width: 176px;
+				height: 254px;
+				display: inline-block;
+				margin-right: 22px;
+				margin-bottom: 20px;
+			}
+			
+			.book {
+				width: 176px;
+				height: 218px;
+				border: 1px solid #eee;
+			}
+			
+			.book img {
+				width: 176px;
+				height: 218px;
+			}
+			
+			.bookTitle {
+				width: 176px;
+				height: 34px;
+				line-height: 34px;
+				text-align: center;
+				color: #000;
+				font-family: "微软雅黑";
+				font-size: 12px;
+			}
+			
+			.content_addBooks {
+				width: 91%;
+				float: right;
+				padding-top: 60px;
+				display: none;
+			}
+			
+			.marginTopStyle {
+				margin-top: 57px;
+				height: 550px;
+				overflow: auto;
+			}
+			
+			.marginLeftStyle {
+				margin-left: 68px;
+				margin-bottom: 40px;
+			}
+			
+			.marginLeftStyle a {
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+			}
+			
+			.marginLeftStyle input {
+				background: #f3f8fe;
+				border: 1px solid #dadee2;
+				width: 190px;
+				height: 24px;
+				font-family: 微软雅黑;
+				font-size: 12px;
+			}
+			
+			.submitBtn {
+				width: 91%;
+				height: 80px;
+				text-align: center;
+			}
+			
+			.submitBtn div {
+				display: inline-block;
+				width: 70px;
+				height: 36px;
+				color: #fff;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				cursor: pointer;
+			}
+			
+			.submitBtn .saveBtn {
+				background: #2378e5;
+				margin-right: 46px;
+			}
+			
+			.submitBtn .cancelBtn {
+				background: #fc8213;
+			}
+			
+			.complete {
+				display: inline-block;
+				width: 70px;
+				height: 36px;
+				color: #fff;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				cursor: pointer;
+				background: #2b83de;
+				margin-right: 46px;
+			}
+			
+			._active {
+				opacity: 0.4;
+			}
+			
+			.booksManage {
+				display: none;
+				height: 100%;
+				/*background: #fff;*/
+			}
+			
+			.index_content {
+				display: none;
+				width: 830px;
+				margin: 180px auto;
+			}
+			
+			.img1 {
+				margin-right: 78px;
+			}
+			
+			.selectState {
+				height: 24px;
+				width: 190px;
+				margin-bottom: 6px;
+				font-size: 12px;
+				color: #333;
+				background: #f3f8fe;
+			}
+			
+			.bookType {
+				height: 24px;
+				width: 80px;
+				margin-bottom: 6px;
+				font-size: 12px;
+				color: #333;
+			}
+			
+			.bookState {
+				height: 24px;
+				width: 92px;
+				margin-bottom: 6px;
+				font-size: 12px;
+				color: #333;
+			}
+			
+			.upload_btn {
+				text-align: center;
+				background: #2b83de;
+				width: 60px;
+				color: #fff;
+				margin-left: 103px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -97,7 +525,7 @@
 						<div class="searchItem">
 							<a>图书状态 : </a>
 							<select class="bookState">
-								<option value="0">请选择</option>
+								<option value="">请选择</option>
 								<option value="shelving">上架</option>
 								<option value="removed">下架</option>
 							</select>
@@ -165,7 +593,7 @@
 							<div class="searchItem marginLeftStyle">
 								<a>状态 : </a>
 								<select class="selectState" name='book_state'>
-									<option value="0">请选择</option>
+									<option value="">请选择</option>
 									<option value="shelving">上架</option>
 									<option value="removed">下架</option>
 								</select>
@@ -191,8 +619,16 @@
 								</select>
 							</div>
 							<div class="searchItem marginLeftStyle">
-								<a>主题 : </a>
-								<textarea name="theme" placeholder="最多64个字" cols="19" rows="6" style="background: #f3f8fe;font-size: 18px;color: #333;"></textarea>
+								<a>主题: </a>
+								<textarea name="theme" placeholder="最多64个字" cols="19" rows="6" style="background: #f3f8fe;font-size: 12px;color: #333;font-family: '微软雅黑';width: 184px;"></textarea>
+							</div>
+							<div class="searchItem marginLeftStyle">
+								<a>导读 : </a>
+								<textarea name="introduction" cols="19" rows="6" style="background: #f3f8fe;font-size: 12px;color: #333;font-family: '微软雅黑';width: 184px;"></textarea>
+							</div>
+							<div class="searchItem marginLeftStyle">
+								<a>简介 : </a>
+								<textarea name="summary" cols="19" rows="6" style="background: #f3f8fe;font-size: 12px;color: #333;font-family: '微软雅黑';width: 184px;"></textarea>
 							</div>
 							<div class="submitBtn">
 								<div class="saveBtn">
@@ -207,7 +643,7 @@
 								<input type="file" id="file" name="" style="display: none" />
 								<div id="image" style="display: inline-block; ">
 									<label for="file" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-										<img src="" alt="" id="img" style="width: 192px;height: 132px;" />
+										<img src="" alt="" id="img" style="width: 192px;height: 132px;"/>
 									</label>
 								</div>
 								<div class="upload_btn" onclick="uploadImg('cover')">上传</div>
@@ -218,8 +654,8 @@
 									<input type="file" id="figure_file1" name="" style="display: none" />
 									<div id="figure_image1" style="display: inline-block; ">
 										<label for="figure_file1" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-											<img src="" alt="" id="figure_img1" style="width: 192px;height: 132px;" />
-										</label>
+										<img src="" alt="" id="figure_img1" style="width: 192px;height: 132px;"/>
+									</label>
 									</div>
 									<div class="upload_btn" onclick="uploadImg('figure_file1')">上传</div>
 								</div>
@@ -228,8 +664,8 @@
 									<input type="file" id="figure_file2" name="" style="display: none" />
 									<div id="figure_image2" style="display: inline-block; ">
 										<label for="figure_file2" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-											<img src="" alt="" id="figure_img2" style="width: 192px;height: 132px;" />
-										</label>
+										<img src="" alt="" id="figure_img2" style="width: 192px;height: 132px;"/>
+									</label>
 									</div>
 									<div class="upload_btn" onclick="uploadImg('figure_file2')">上传</div>
 								</div>
@@ -238,8 +674,8 @@
 									<input type="file" id="figure_file3" name="" style="display: none" />
 									<div id="figure_image3" style="display: inline-block; ">
 										<label for="figure_file3" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-											<img src="" alt="" id="figure_img3" style="width: 192px;height: 132px;" />
-										</label>
+										<img src="" alt="" id="figure_img3" style="width: 192px;height: 132px;"/>
+									</label>
 									</div>
 									<div class="upload_btn" onclick="uploadImg('figure_file3')">上传</div>
 								</div>
@@ -248,8 +684,8 @@
 									<input type="file" id="figure_file4" name="" style="display: none" />
 									<div id="figure_image4" style="display: inline-block; ">
 										<label for="figure_file4" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-											<img src="" alt="" id="figure_img4" style="width: 192px;height: 132px;" />
-										</label>
+										<img src="" alt="" id="figure_img4" style="width: 192px;height: 132px;"/>
+									</label>
 									</div>
 									<div class="upload_btn" onclick="uploadImg('figure_file4')">上传</div>
 								</div>
@@ -258,8 +694,8 @@
 									<input type="file" id="figure_file5" name="" style="display: none" />
 									<div id="figure_image5" style="display: inline-block; ">
 										<label for="figure_file5" style="width:194px;height:132px; background:#f3f8fe;display: inline-grid; ">
-											<img src="" alt="" id="figure_img5" style="width: 192px;height: 132px;" />
-										</label>
+										<img src="" alt="" id="figure_img5" style="width: 192px;height: 132px;"/>
+									</label>
 									</div>
 									<div class="upload_btn" onclick="uploadImg('figure_file5')">上传</div>
 								</div>
@@ -278,6 +714,429 @@
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/md5.min.js"></script>
 	<script type="text/javascript" src="js/jquery-self-form.js"></script>
-	<script type="text/javascript" src="js/init.js"></script>
+	<script>
+		var username = '';
+		var realm = 'qiktone.com';
+		var nonce = Math.random().toString(36).substr(2);
+		//		var domain = 'http://192.168.1.88:8098';
+		var domain = 'http://ibook.qik56.com:8088';
+		var base64 = ''; //封面
+		var selectId = '';
+		var bookId = '';
+		var picIds = []; //封面插图id
+		//var constant;//常量
+		//登录
+		function login() {
+			username = $('.user').val();
+			var password = md5($('.pwd').val());
+			var ai = { username: username, password: password, realm: realm }
+			var response = md5(ai.username + "&" + ai.password + "&" + ai.realm + "&" + nonce + "&login");
+			$.ajax({
+				url: domain + '/ibook/login',
+				type: 'get',
+				data: { username: username, nonce: nonce, response: response, realm: realm },
+				success: function(res) {
+					$('.container').css('display', 'none');
+					$('.index_content').css('display', 'block');
+					$('.booksManage').css('display', 'none');
+					$('.loginName').text(res.name);
+					$.ajax({
+						url: domain + '/ostrich/queryConstant',
+						type: 'get',
+						data: { offset: 0, rows: 200, username: username, nonce: nonce, result: '123' },
+						success: function(_res) {
+							//constant=_res;
+							//装在图书类型
+							doBookType(_res);
+						}
+					});
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			})
+		}
+		//创建图书类型
+		function doBookType(res) {
+			var str1 = '<option value="">请选择</option>';
+			for(var i = 0; i < res.book_type1.length; i++) {
+				str1 += '<option value="' + res.book_type1[i].code + '">' + res.book_type1[i].descr + '</option>'
+			}
+			$('.book_type1').append(str1);
+			var str2 = '<option value="">请选择</option>';
+			for(var i = 0; i < res.book_type2.length; i++) {
+				str2 += '<option value="' + res.book_type2[i].code + '">' + res.book_type2[i].descr + '</option>'
+			}
+			$('.book_type2').append(str2);
+			var str3 = '<option value="">请选择</option>';
+			for(var i = 0; i < res.book_type3.length; i++) {
+				str3 += '<option value="' + res.book_type3[i].code + '">' + res.book_type3[i].descr + '</option>'
+			}
+			$('.book_type3').append(str3);
+			var str4 = '<option value="">请选择</option>';
+			for(var i = 0; i < res.book_type4.length; i++) {
+				str4 += '<option value="' + res.book_type4[i].code + '">' + res.book_type4[i].descr + '</option>'
+			}
+			$('.book_type4').append(str4);
+		}
+		//回到首页
+		function intoIndex() {
+			$('.container').css('display', 'none');
+			$('.index_content').css('display', 'block');
+			$('.booksManage').css('display', 'none');
+			$('.content_right').css('display', 'block');
+			$('.content_addBooks').css('display', 'none');
+		}
+		//进入图书
+		function intoBooks() {
+			$('.container').css('display', 'none');
+			$('.index_content').css('display', 'none');
+			$('.booksManage').css('display', 'block');
+			//查询图书
+			onQueryBooks();
+		}
+		//查询图书按钮
+		$('.searchBtn').click(function() {
+			var search_bookId = $('.search_bookId').val(); //图书编号
+			var search_bookName = $('.search_bookName').val(); //图书名称
+			var bookState = $('.bookState').val(); //图书状态
+			var bookType1 = $('.bookType.book_type1').val(); //图书类别-年龄
+			var bookType2 = $('.bookType.book_type2').val(); //图书类别-主题
+			var bookType3 = $('.bookType.book_type3').val(); //图书类别-大奖
+			var bookType4 = $('.bookType.book_type4').val(); //图书类别-大师
+			var data = { username: username, nonce: nonce, result: '123', name: search_bookName, book_state: bookState, book_type1: bookType1, book_type2: bookType2, book_type3: bookType3, book_type4: bookType4, rows: 100, offset: 0 };
+			$.ajax({
+				url: domain + '/ibook/queryBook',
+				type: 'get',
+				data: data,
+				success: function(res) {
+					if(res.statuscode == 200) {
+						var str = '';
+						for(var i = res.items.length - 1; i >= 0; i--) {
+							str += '<div class="bodyItem" onclick="select(this,' + res.items[i].id + ')">'
+							str += '<div class="book"><img src="' + res.items[i].cover_url + '" alt=""/></div>'
+							str += '<div class="bookTitle">' + res.items[i].name + '</div>'
+							str += '</div>'
+						}
+						$('.body').html('');
+						$('.body').append(str);
+					}
+				},
+				error: function(err) {
+					alert(err)
+				}
+			});
+		});
+		//初始化查询图书
+		function onQueryBooks() {
+			resetParams();
+			var data = { username: username, nonce: nonce, result: '123', name: '', book_state: '', id: '', rows: 100, offset: 0 };
+			$.ajax({
+				url: domain + '/ibook/queryBook',
+				type: 'get',
+				data: data,
+				success: function(res) {
+					if(res.statuscode == 200) {
+						var str = '';
+						for(var i = res.items.length - 1; i >= 0; i--) {
+							str += '<div class="bodyItem" onclick="select(this,' + res.items[i].id + ')">'
+							str += '<div class="book"><img src="' + res.items[i].cover_url + '" alt=""/></div>'
+							str += '<div class="bookTitle">' + res.items[i].name + '</div>'
+							str += '</div>'
+						}
+						$('.body').html('');
+						$('.body').append(str);
+					}
+				},
+				error: function(err) {
+					alert(err)
+				}
+			});
+		}
+		//重置参数
+		function resetParams() {
+			selectId = '';
+			base64 = '';
+			$('#img')[0].src = '';
+			$('#figure_img1')[0].src = '';
+			$('#img').attr('data-book_id', '');
+			$('#figure_img1').attr('data-book_id', '');
+			$('textarea').val('');
+			var a = $("#addBooks input");
+			$.each(a, function(name, object) {
+				$(object).val('')
+			});
+			$('.search_bookId').val(''); //图书编号
+			$('.search_bookName').val(''); //图书名称
+			$('.bookState').val('0'); //图书状态
+			$('.book_type1').val('0'); //图书类别-年龄
+			$('.book_type2').val('0'); //图书类别-主题
+			$('.book_type3').val('0'); //图书类别-大奖
+			$('.book_type4').val('0'); //图书类别-大师
+			figure_file_base64 = [];
+			temId = '';
+		}
+		//上架,下架图书
+		function upDownBooks(state) {
+
+			if(selectId == '') {
+				alert('请选择一本图书！')
+			} else {
+				var book_state = '';
+				if(state == 'up') {
+					book_state = 'shelving'
+				} else {
+					book_state = 'removed'
+				}
+				var data = { result: "213123", username: username, nonce: nonce, id: selectId, book_state: book_state };
+				$.ajax({
+					url: domain + '/ibook/saveBook',
+					type: 'post',
+					data: data,
+					success: function(res) {
+						if(res.statuscode == 0) {
+							alert('操作成功')
+							$('.content_right').css('display', 'block');
+							$('.content_addBooks').css('display', 'none');
+							onQueryBooks();
+						}
+					}
+				});
+			}
+		}
+		//添加图书
+		$('.addBooks').click(function() {
+			resetParams();
+			$('.content_right').css('display', 'none');
+			$('.content_addBooks').css('display', 'block');
+		});
+		//编辑图书
+		$('.editBooks').click(function() {
+			if(selectId == '') {
+				alert('请选择一本图书！')
+			} else {
+				//跳到编辑图书
+				$('.content_right').css('display', 'none');
+				$('.content_addBooks').css('display', 'block');
+				//获取图书信息
+				var data = { username: username, nonce: nonce, result: '123', name: '', book_state: '', id: selectId, rows: 60, offset: 0 };
+				$.ajax({
+					url: domain + '/ibook/queryBook',
+					type: 'get',
+					data: data,
+					success: function(res) {
+						if(res.statuscode == 200) {
+							$.ajax({
+								type: "get",
+								url: domain + '/ibook/queryIllustration',
+								data: { username: username, nonce: nonce, result: '123', name: '', book_state: '', book_id: selectId, rows: 60, offset: 0 },
+								success: function(_res) {
+									debugger;
+									for(var i = 0; i < _res.items.length; i++) {
+										if(i<=4){
+											$('#figure_img' + (i + 1))[0].src = _res.items[i].url;
+											$('#figure_img' + (i + 1)).attr('data-id', _res.items[i].id);
+										}
+									}
+									var _data = res.items[0];
+									$("#addBooks").setFormValue(_data);
+									$('#img')[0].src = _data.cover_url; //封面赋值 
+									$('#img').attr('data-book_id', _data.id);
+									$('#figure_img1').attr('data-book_id', _data.id);
+									$('#figure_img2').attr('data-book_id', _data.id);
+									$('#figure_img3').attr('data-book_id', _data.id);
+									$('#figure_img4').attr('data-book_id', _data.id);
+									$('#figure_img5').attr('data-book_id', _data.id);
+								}
+							});
+
+						}
+					},
+					error: function(err) {
+						alert(err)
+					}
+				});
+			}
+		});
+		//选择一本图书
+		function select(obj, id) {
+			$(obj).addClass('_active').siblings().removeClass('_active');
+			selectId = id;
+		}
+		//保存添加的图书
+		$(".saveBtn").click(function() {
+			var data = $("#addBooks").serializeJson('result:"213123";username:' + username + ';nonce:' + nonce + ';id:' + selectId);
+			$.ajax({
+				url: domain + '/ibook/saveBook',
+				type: 'post',
+				data: data,
+				success: function(res) {
+					if(res.statuscode == 0) {
+						$('#img').attr('data-book_id', res.items.id);
+						$('#figure_img1').attr('data-book_id', res.items.id);
+						alert('操作成功')
+					}
+				}
+			});
+		});
+		//取消保存图书
+		$(".cancelBtn").click(function() {
+			$('.content_right').css('display', 'block');
+			$('.content_addBooks').css('display', 'none');
+		});
+		//上传封面图片
+		document.getElementById('file').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#img')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		//上传插图图片
+		document.getElementById('figure_file1').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#figure_img1')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		document.getElementById('figure_file2').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#figure_img2')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		document.getElementById('figure_file3').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#figure_img3')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		document.getElementById('figure_file4').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#figure_img4')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		document.getElementById('figure_file5').onchange = function() {
+			var imgFile = this.files[0];
+			var fr = new FileReader();
+			fr.onload = function() {
+				$('#figure_img5')[0].src = fr.result;
+				base64 = fr.result;
+			};
+			fr.readAsDataURL(imgFile);
+		};
+		//上传图片
+		function uploadImg(type) {
+			switch(type) {
+				case 'cover':
+					doUpload('cover', 'cover');
+					break;
+				case 'figure_file1':
+					doUpload('illustration', type);
+					break;
+				case 'figure_file2':
+					doUpload('illustration', type);
+					break;
+				case 'figure_file3':
+					doUpload('illustration', type);
+					break;
+				case 'figure_file4':
+					doUpload('illustration', type);
+					break;
+				case 'figure_file5':
+					doUpload('illustration', type);
+					break;
+				default:
+					break;
+			}
+		}
+
+		function doUpload(type, index) {
+			if(base64 == '') {
+				alert('请选择图片');
+				return;
+			}
+			var bookId;
+			var temId;
+			if(index == 'cover') {
+				bookId = $('#img').attr('data-book_id');
+			}
+			if(index == 'figure_file1') {
+				bookId = $('#figure_img1').attr('data-book_id');
+				temId=$('#figure_img1').attr('data-id');
+			}
+			if(index == 'figure_file2') {
+				bookId = $('#figure_img2').attr('data-book_id');
+				temId=$('#figure_img2').attr('data-id');
+			}
+			if(index == 'figure_file3') {
+				bookId = $('#figure_img3').attr('data-book_id');
+				temId=$('#figure_img3').attr('data-id');
+			}
+			if(index == 'figure_file4') {
+				bookId = $('#figure_img4').attr('data-book_id');
+				temId=$('#figure_img4').attr('data-id');
+			}
+			if(index == 'figure_file5') {
+				bookId = $('#figure_img5').attr('data-book_id');
+				temId=$('#figure_img5').attr('data-id');
+			}
+			var _data = { type: type, book_id: bookId, id: temId, username: username, key: '213', result: '123', file_data: base64 };
+			$.ajax({
+				url: domain + '/uploadfile',
+				type: 'post',
+				data: _data,
+				success: function(_res) {
+					debugger;
+					if(_res.statuscode == 200) {
+						if(index == 'cover') {
+							$('#img').attr('data-id', _res.id);
+						}
+						if(index == 'figure_file1') {
+							$('#figure_img1').attr('data-id', _res.id);
+						}
+						if(index == 'figure_file2') {
+							$('#figure_img2').attr('data-id', _res.id);
+						}
+						if(index == 'figure_file3') {
+							$('#figure_img3').attr('data-id', _res.id);
+						}
+						if(index == 'figure_file4') {
+							$('#figure_img4').attr('data-id', _res.id);
+						}
+						if(index == 'figure_file5') {
+							$('#figure_img5').attr('data-id', _res.id);
+						}
+						alert('操作成功')
+					} else {
+						alert('图片添加失败' + _res.statuscode)
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		}
+		$('.complete').click(function() {
+			$('.content_right').css('display', 'block');
+			$('.content_addBooks').css('display', 'none');
+			onQueryBooks();
+		});
+	</script>
 
 </html>
